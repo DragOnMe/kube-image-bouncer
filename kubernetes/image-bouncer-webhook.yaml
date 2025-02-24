@@ -29,7 +29,8 @@ spec:
       containers:
         - name: image-bouncer-webhook
           imagePullPolicy: Always
-          image: "kainlite/kube-image-bouncer:latest"
+          # Pull your newly build container image
+          image: "docker.io/drlee001/kube-image-bouncer:latest"
           args:
             - "--cert=/etc/admission-controller/tls/tls.crt"
             - "--key=/etc/admission-controller/tls/tls.key"
