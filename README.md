@@ -4,8 +4,8 @@
 
 #### I have modified kainlite/kube-image-bouncer to work with the following requirements and environments.
 * Apple M3 (Sequoia 15.3)
-* Vagrant 2.4.3
-* Parallels Desktop 20 VM (ubuntu-22.04-aarch64, bento/ubuntu-22.04-arm64)
+* Vagrant 2.4.3 (box: bento/ubuntu-22.04-arm64)
+* Parallels Desktop 20 VM (ubuntu-22.04-aarch64
 * Kubernetes 1.31
 
 #### Challenging situation
