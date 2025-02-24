@@ -1,5 +1,25 @@
 # kube-image-bouncer
 
+## Notice
+
+I have modified kainlite/kube-image-bouncer to work with the following requirements and environments.
+* Apple M3 (Sequoia 15.3)
+* Vagrant 2.4.3
+* Parallels Desktop 20 VM (ubuntu-22.04-aarch64, bento/ubuntu-22.04-arm64)
+* Kubernetes 1.31
+
+Challenging situation
+* When deploying kubernetes/image-bouncer-webhook.yaml, the container fails to start up properly and “Exec format error” occurs
+
+* Create selfsigned cert key file before deploying kubernetes/image-bouncer-webhook.
+```
+openssl req -newkey rsa:2048 -nodes -keyout webhook-key.pem -x509 -days 365 -out webhook.pem
+kubectl create secret tls tls-image-bouncer-webhook  --key=webhook-key.pem   --cert=webhook.pem
+```
+
+Belows are the original README file content
+---
+
 A simple webhook endpoint server that can be used to validate the images being created inside of the kubernetes cluster (created by kubeadm and tested on version 1.20.0), see the original repo: [kube-image-bouncer](https://github.com/flavio/kube-image-bouncer) for a vanilla implementation.
 
 It works with two different types of [Kubernetes admission controller](https://kubernetes.io/docs/admin/admission-controllers/):
