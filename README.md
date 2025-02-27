@@ -10,7 +10,10 @@
 
 #### Challenging situation
 * When deploying kubernetes/image-bouncer-webhook.yaml, the container fails to start up properly and “Exec format error” occurs
+* Modifying the old Dockerfile for Arm64, so the container can run on Arm64, a K8s node
+* Chaning the target image in manifest to docker.io/drlee001/kube-image-bouncer:latest
 
+#### Caution
 * Create selfsigned cert key file before deploying kubernetes/image-bouncer-webhook.
 ```
 openssl req -newkey rsa:2048 -nodes -keyout webhook-key.pem -x509 -days 365 -out webhook.pem
